@@ -8,6 +8,29 @@ It's inelegant, but I couldn't get rooting to work, so this will have to work.
 
 This requires that you have [Simple App Launcher](https://f-droid.org/en/packages/com.simplemobiletools.applauncher/) installed.  
 
+# Install
+
+I found the easiest way to install it was to get my Nook into USB debug mode, then do 
+
+```
+$ adb push the_apk.apk /sdcard/
+
+$ adb shell
+
+E70P74_android:/ $ cd sdcard
+E70P74_android:/sdcard $ pm install -r the_apk.apk
+
+```
+
+From there, you need to enable it in accessibility settings: 
+
+```
+adb shell pm grant com.nook.bootlauncher android.permission.WRITE_SECURE_SETTINGS
+```
+
+This should pop up the screen for accessibility settings.  There should be something called "Library Tools", click on that and enable that. 
+
+Once you do that, you should be able to click the top left button and the simple launcher will pop up. 
 
 # Disclaimer
 
